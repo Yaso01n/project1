@@ -53,12 +53,19 @@ public class Project1 {
 	 else
 	 {
      System.out.println("Invalid user name or password,please try again. \n");
+		 
+		 // login() --> Not Start
+		 // If the Login faild, we should make him login again not back to the main menu...
      start();
 	 }
 	 }
 	 
 	 
 	 public static void mainpage(int u) {
+		 
+		 // Better to pass the create this array in the login and pass the value only.
+		 // This isn't required but it's better to create the dummy data all in one place.
+		 
 		 String fullname[] = {"Ahmed Mohamed Ali","Aya Hassan Sayed","Mohamed Ayman Mostafa","Alaa Nagy Ali","Salma Mostafa Hagag"};
 		 System.out.printf("Hi %s, Please Choose an option:%n",fullname[u]);
 		 Scanner sv =new Scanner(System.in);
@@ -84,7 +91,7 @@ public class Project1 {
 		 System.out.println("\n 1-View Course. \n 2-Step back. \n 3-Log out.");
 		 int x=sx.nextInt();
 		 if(x==1)
-		    ViewCourse(u,2);
+		    	 ViewCourse(u,2);
 		 else if(x==2)
 			 mainpage(u);
 		 else if(x==3)
@@ -110,7 +117,9 @@ public class Project1 {
 		 System.out.println("Course not found. \n1-Try again. \n2-Log out.");
 		 int p=sv.nextInt();
 		 if(p==1)
-		 mainpage(u);
+			// Better to call ViewCourse again and forget about the exception...
+			// but it's geat way to avoid the exception
+		 	mainpage(u);
 		 else if(p==2)
 			 start();
 		 }	 
@@ -179,6 +188,13 @@ public class Project1 {
 	 
 	 
 	 public static void assignmentsm(int u) {
+		 
+		 // Use a boolean array to store the assignemnt data True --> done, False --> Not responded
+		 // Using the array give me the option to edit the assignment, for ex in 0 here.
+		 // If I edited task 2 --> should see option 1 and see grade for both 1 and 2 in the assignment report.
+		 // I know that all down with your implementation but if we had 20 assignment rather than 2?
+		 // The array also should be 2D or 3D array to avoid using all the functions for the assignment and grade reports.
+		 
 		 if(u==0)
 		     System.out.println(" 1- Task 1 -->done. \n 2- Task 2 -->Not responded.");
 		 else if(u==1)
@@ -377,3 +393,9 @@ public class Project1 {
 			 mainpage(u); 
 	 }
 }
+
+
+// Really, it's a great implementation..
+// Additional ideas --> Creating dataFunctions to be accessable to the data and can edit on it
+// Also You can create the arrays as public static to be acessable in the whole class and create functions like --> addCourse, addAssignment
+
